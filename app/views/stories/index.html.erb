@@ -1,0 +1,30 @@
+<h1>Stories</h1>
+
+<table>
+  <tr>
+	<th>Preview</th>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Published on</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @stories.each do |story| %>
+  <tr>
+	<!-- <td><img border="1" width="500" height="283" float="right" src="<%= @preview_page_1 %>"></img></td> -->
+	<td><img border="1" width="120" height="150" src="rails.png"></img></td>
+    <td><%= story.title %></td>
+    <td><%= story.author %></td>
+    <td><%= story.published_on %></td>
+    <td><%= link_to 'Show', story %></td>
+    <td><%= link_to 'Edit', edit_story_path(story) %></td>
+    <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Story', new_story_path %>
