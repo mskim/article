@@ -6,6 +6,7 @@ class CreateStories < ActiveRecord::Migration
       t.string :subtitle
       t.text :body
       t.date :published_on
+      t.string :template
 
       t.timestamps
     end

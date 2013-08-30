@@ -44,7 +44,7 @@ class StoriesController < ApplicationController
 
     respond_to do |format|
       if @story.save
-        @story.save_meta_markdown    # call save_meta_markdown, it calls drb, create pdf
+        @story.process_drb    # call process_drb, it calls drb, create pdf
         format.html { redirect_to @story, notice: 'Story was successfully created.' }
         format.json { render json: @story, status: :created, location: @story }
       else
@@ -61,7 +61,7 @@ class StoriesController < ApplicationController
 
     respond_to do |format|
       if @story.update_attributes(params[:story])
-        @story.save_meta_markdown
+        @story.process_drb
         format.html { redirect_to @story, notice: 'Story was successfully updated.' }
         format.json { head :no_content }
       else
